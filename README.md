@@ -48,7 +48,7 @@ The general workflow of the framework consists of the following steps:
 ### 1. Clone the repository
 
 ```powershell
-git clone https://github.com/USERNAME/REPOSITORY.git
+git clone https://github.com/ULFE-LPEE/IEEE_39Bus_DSA.git
 cd REPOSITORY
 ```
 
