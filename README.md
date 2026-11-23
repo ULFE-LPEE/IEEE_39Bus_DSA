@@ -254,6 +254,100 @@ The generated results are exported to CSV files in the corresponding directories
 
 For a detailed explanation of the structure of the exported files, see `Explenation_of_smaples.docx`.
 
+### Results structure
+
+#### Info.csv
+
+The `Info.csv` file contains the basic configoration information required to reproduce results:
+- `MethodUsed` - The set parameters for varaibles `Algorithm_settings` and `Parallel_algorithm_setting` in fullDSA.py
+- `ExecutionTime` - The execution time for fullDSA.py
+- `sectionTiming` - The execution time divided by sections
+- `settingsTSA` - The simulation settings used for TSA in DSA/RunDSA.py
+- `settingsFSA` - The simulation settings used for FSA in DSA/RunDSA.py
+- `settingsSSSA` - The simulation settings used for SSSA in DSA/RunDSA.py
+
+
+#### LoadFlow.csv
+
+The `LoadFlow.csv` file contains the results of the load-flow calculations. Column headers follow the format `VAR_ELEMENT_UNIT`, where:
+- `VAR` - The variable measured or calculated
+- `ELEMENT` - The element at which the variable was measured
+- `UNIT` - The unit of the variable (not applicable to all variables)
+
+**Types of variables:**
+- `U` - Busbar voltage magnitude in p.u.
+- `phi` - Busbar voltage phase angle in degrees
+- `P` - Generator active power output or load active power consumption in p.u., depending on the element type
+- `Q` - Generator reactive power output or load reactive power consumption in p.u., depending on the element type
+- `oserv` - Element operating status (`1` - in service, `0` - out of service). This variable has no unit
+- `Sk` - Busbar short-circuit power in p.u.
+
+#### FSA.csv
+
+The `FSA.csv` file contains the results of the **Frequency Stability Assessment (FSA)** simulations. Single-generator outages are simulated, and the rotor speeds of the remaining generators are recorded.
+
+The first eight columns (`Wktotal`, `Htotal`, `Hcol`, `Wkmax`, `Hmax`, `MThreshold1`, `MThreshold2`, and `MThreshold3`) contain informational data. The `MThreshold` values are used to calculate the frequency stability margins, as described in [this paper](https://www.sciencedirect.com/science/article/pii/S0378779621000973).
+
+The remaining column headers follow the format `VAR_GEN1_GEN2`, where:
+- `VAR` - The variable measured or calculated
+- `GEN1` - The generator whose outage was simulated
+- `GEN2` - The generator at which the variable was measured
+
+**Types of variables:**
+- `minF` - Minimum recorded frequency in p.u. (base frequency: 50 Hz)
+- `maxF` - Maximum recorded frequency in p.u. (base frequency: 50 Hz)
+- `maxRoCoF` - Maximum absolute Rate of Change of Frequency (RoCoF) in p.u./s (base frequency: 50 Hz)
+- `M1` - Frequency stability margin calculated using `MThreshold1`, in seconds
+- `M2` - Frequency stability margin calculated using `MThreshold2`, in seconds
+- `M3` - Frequency stability margin calculated using `MThreshold3`, in seconds
+
+#### SSSA.csv
+
+The `SSSA.csv` file contains the results of the **Small-Signal Stability Assessment (SSSA)**. The results are obtained using QR decomposition.
+
+The table is divided into sections, each corresponding to an oscillatory mode. Each section begins with the real (absolute damping) and imaginary (frequency) parts of the corresponding eigenvalue:
+- `RealPart_ModeX` - Real part of the eigenvalue associated with mode `X`
+- `ImagPart_ModeX` - Imaginary part of the eigenvalue associated with mode `X`
+
+The remaining column headers follow the format `VECTYP_MODEN_VAR_ELM`, where:
+- `VECTYP` - The vector type used in the analysis
+- `MODEN` - The mode number
+- `VAR` - The state variable
+- `ELM` - The element being observed
+
+**Types of vector values:**
+- `ConMag` - Controllability magnitude
+- `ConAng` - Controllability angle
+- `ObsMag` - Observability magnitude
+- `ObsAng` - Observability angle
+- `ParMag` - Participation magnitude
+- `ParAng` - Participation angle
+
+**Types of state variables:**
+- `Psi1d` - Flux in the 1d-damper winding (d-axis)
+- `Psifd` - Excitation flux
+- `Psi1q` - Flux in the 1q-damper winding (q-axis)
+- `psi2q` - Flux in the 2q-damper winding (q-axis)
+- `speed` - Rotor speed
+- `phi` - Rotor position angle
+
+#### TSA.csv
+
+The `TSA.csv` file contains the results of the **Transient Stability Assessment (TSA)** simulations. Three-phase faults are simulated at busbars and on lines. Faults at busbars are self-cleared, while faults on lines are cleared by tripping the affected line.
+
+The assessment calculates the **Critical Clearing Time (CCT)**, defined as the maximum fault duration the system can withstand without any generator losing synchronism.
+
+The table is divided into sections, each containing information about an individual fault simulation.
+
+**Recorded information:**
+- `CCT_X` - Critical clearing time for the fault event with ID `X`
+- `Terminal_X` - Terminal (busbar) near which the fault was simulated
+- `Crit_gen_X` - Critical generator that would first lose synchronism if the fault duration exceeded the CCT
+- `Type_X` - Type of fault simulated:
+  - `0` - Fault at a busbar (terminal)
+  - `1` - Fault on a line, applied at the end nearest to the busbar specified by `Terminal_X`
+- `Location_X` - Element (line or busbar) at which the fault was simulated
+
 ## Project Structure
 
 ```text

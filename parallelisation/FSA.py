@@ -1,7 +1,7 @@
 import sys, os # This file is retired and should not be used in the DSA process anymore
 
 # Import the venv to use the packages installed in it. #! THE COMMAND MUST BE IN LINE 4! DO NOT CHANGE IT
-venv_path = 'C:\\Users\\lpee__ardpa8p\\Desktop\\Matjaz_Skrlec\\FullDSA_IEEE_39_bus_variation\\.venv\\Lib\\site-packages'
+venv_path = 'path/to/your/venv' # this row is set automatically when you run fullDSA.py
 if os.path.exists(venv_path) and venv_path not in sys.path:
     sys.path.insert(0, venv_path)
 

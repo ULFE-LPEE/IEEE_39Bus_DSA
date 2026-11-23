@@ -44,7 +44,7 @@ def MoveFile(old_file_path: Path, file_dir: Path, new_file_name: str):
 if __name__ == "__main__":
     # variable parameters 
     ## number of iterations   
-    n_iterations = 10
+    n_iterations = 70
     
     ## maximum_waiting_time_for_one_iteration
     max_wait_process_h = 0 # hours

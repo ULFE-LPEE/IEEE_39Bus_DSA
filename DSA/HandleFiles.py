@@ -1037,31 +1037,31 @@ def CreateTempCsvInfo(file_name: str, MethodUsed: tuple[tuple], ExecutionTime: l
     # Methods used
     writeIterable(file, MethodUsed)
     # Total execution time
-    TotalExecutionTime = ExecutionTime[-1]-ExecutionTime[0]
+    TotalExecutionTime = round(ExecutionTime[-1]-ExecutionTime[0],5)
     file.write(";%s" % TotalExecutionTime)
     # sectionTiming
     file.write(";")
     match MethodUsed[1]:
         case 0:
-            Imoport_time = ExecutionTime[1]-ExecutionTime[0]
-            list_setup_time = ExecutionTime[2]-ExecutionTime[1]
-            initialisation_time = ExecutionTime[3]-ExecutionTime[2]
-            LF_calc_time = ExecutionTime[4]-ExecutionTime[3]
-            Freerun_time = ExecutionTime[5]-ExecutionTime[4]
-            TSA_time =   ExecutionTime[6]-ExecutionTime[5] 
-            FSA_time =   ExecutionTime[7]-ExecutionTime[6]
-            SSSA_time =   ExecutionTime[8]-ExecutionTime[7]  
-            export_time =   ExecutionTime[9]-ExecutionTime[8]
+            Imoport_time = round(ExecutionTime[1]-ExecutionTime[0],5)
+            list_setup_time = round(ExecutionTime[2]-ExecutionTime[1],5)
+            initialisation_time = round(ExecutionTime[3]-ExecutionTime[2],5)
+            LF_calc_time = round(ExecutionTime[4]-ExecutionTime[3],5)
+            Freerun_time = round(ExecutionTime[5]-ExecutionTime[4],5)
+            TSA_time =   round(ExecutionTime[6]-ExecutionTime[5] ,5)
+            FSA_time =   round(ExecutionTime[7]-ExecutionTime[6],5)
+            SSSA_time =   round(ExecutionTime[8]-ExecutionTime[7],5) 
+            export_time =   round(ExecutionTime[9]-ExecutionTime[8],5)
             total_times = (Imoport_time, list_setup_time, initialisation_time, LF_calc_time, Freerun_time, TSA_time, FSA_time, SSSA_time, export_time)    
         case 1:
-            Imoport_time = ExecutionTime[1]-ExecutionTime[0]
-            list_setup_time = ExecutionTime[2]-ExecutionTime[1]
-            initialisation_time = ExecutionTime[3]-ExecutionTime[2]
-            LF_calc_time = ExecutionTime[4]-ExecutionTime[3]
-            Freerun_time = ExecutionTime[5]-ExecutionTime[4]
-            TSA_and_FSA_time = ExecutionTime[6]-ExecutionTime[5]
-            SSSA_time =   ExecutionTime[7]-ExecutionTime[6]  
-            export_time =   ExecutionTime[8]-ExecutionTime[7]
+            Imoport_time = round(ExecutionTime[1]-ExecutionTime[0],5)
+            list_setup_time = round(ExecutionTime[2]-ExecutionTime[1],5)
+            initialisation_time = round(ExecutionTime[3]-ExecutionTime[2],5)
+            LF_calc_time = round(ExecutionTime[4]-ExecutionTime[3],5)
+            Freerun_time = round(ExecutionTime[5]-ExecutionTime[4],5)
+            TSA_and_FSA_time = round(ExecutionTime[6]-ExecutionTime[5],5)
+            SSSA_time =   round(ExecutionTime[7]-ExecutionTime[6],5) 
+            export_time =   round(ExecutionTime[8]-ExecutionTime[7],5)
             total_times = (Imoport_time, list_setup_time, initialisation_time, LF_calc_time, Freerun_time, TSA_and_FSA_time, SSSA_time, export_time)
     writeIterable(file, total_times)
     # settings for TSA
