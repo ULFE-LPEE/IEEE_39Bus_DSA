@@ -373,7 +373,7 @@ FullDSA_IEEE_39_bus_variation/
 ├── .gitignore
 ├── ClearPFSpace.py
 ├── fullDSA.py
-├── rabdom_setpoint.py
+├── random_setpoint.py
 ├── RunMultipleTimes.py
 ├── requirements.txt
 ├── LICENCE
