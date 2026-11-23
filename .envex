@@ -1,0 +1,42 @@
+# powerfactory file paths
+PowerfactoryPyFilePath = "C:\Path\to\the\powerfactory\python\module"
+powerfactoryIniFile = "C:\Path\to\the\file\PF.ini"
+# grid model files -------------------------------------------------------------------------------- 
+
+#### static comparison 3 testing
+Pfd_file = "grid_model\\39 Bus New England System.pfd"
+# model parameters
+prj_str = "39 Bus New England System"
+stud_case = "study_case"
+grid_name = "Grid"
+
+# log file ----------------------------------------------------------------------------------------
+LogFile = "logger\\program.log"
+
+# results files------------------------------------------------------------------------------------
+MainDirSaveFlag = "0" 
+# 0 - append temporary file to an existing main file (or create main file if it doens't exits).
+# 1 - copy temporary file to main folder and rewrite its name.
+
+# temporary csv files
+Temp_Info = "results\\temp\\info_temp.csv"
+Temp_LF = "results\\temp\\LF_temp.csv"
+Temp_TSA = "results\\temp\\TSA_temp.csv"
+Temp_FSA = "results\\temp\\FSA_temp.csv"
+Temp_SSSA = "results\\temp\\SSSA_temp.csv"
+
+# main files
+Main_Info = "results\\INFO\\info_main.csv"
+Main_LF = "results\\LF\\LF_main.csv"
+Main_TSA = "results\\TSA\\TSA_main.csv"
+Main_FSA = "results\\FSA\\FSA_main.csv"
+Main_SSSA = "results\\SSSA\\SSSA_main.csv"
+
+Main_dir_Info = "results\\INFO"
+Main_dir_LF = "results\\LF"
+Main_dir_TSA = "results\\TSA"
+Main_dir_FSA = "results\\FSA"
+Main_dir_SSSA = "results\\SSSA"
+
+# temporary powerfactory SSSA files
+Pf_temp_SSSA_file = "results\\temp\\pf_SSSA_temp.csv"

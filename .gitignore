@@ -1,0 +1,32 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+.venv/
+
+# Environment variables and secrets
+.env
+
+# Temporary files
+logger/*
+parallelisation/logger
+parallelisation/temp_results
+
+# results files of past recordings
+/results/FSA/*
+/results/INFO/*
+/results/LF/*
+/results/LOG/*
+/results/SSSA/*
+/results/temp/*
+/results/temp_results/*
+/results/TSA/*
+/results/vault/*
+
+# Powerfactory Workspace
+/Workspace/Workspace.zDPzfEgC/*
+/Workspace/Workspace.zDPzfEgC.Backups/*
+
+# Powerfactory PF.ini file
+PF.ini
