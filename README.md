@@ -376,7 +376,6 @@ FullDSA_IEEE_39_bus_variation/
 ├── rabdom_setpoint.py
 ├── RunMultipleTimes.py
 ├── requirements.txt
-├── Explenation_of_smaples.docx
 └── README.md
 ```
 
