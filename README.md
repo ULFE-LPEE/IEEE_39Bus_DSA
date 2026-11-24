@@ -352,33 +352,42 @@ The table is divided into sections, each containing information about an individ
 
 ```text
 FullDSA_IEEE_39_bus_variation/
-├── CreateModels/
-├── DSA/
-├── grid_model/
-├── logger/
-├── parallelisation/
-├── PFSupport/
-├── results/
-│   ├── FSA/
-│   ├── INFO/
-│   ├── LF/
-│   ├── LOG/
-│   ├── SSSA/
-│   ├── temp/
-│   ├── temp_results/
-│   ├── TSA/
-│   └── vault/
-├── Workspace/
-├── .env
-├── .gitignore
-├── ClearPFSpace.py
-├── fullDSA.py
-├── random_setpoint.py
-├── RunMultipleTimes.py
-├── requirements.txt
-├── LICENCE
-└── README.md
+├── CreateModels/             # PowerFactory model importing module
+├── DSA/                      # Modules used for dynamic security assessment
+├── grid_model/               # PoweFactory model (.pfd) file
+├── logger/                   # Logging files
+├── parallelisation/          # Modules for task parallelisation
+├── PFSupport/                # Modules that help with PowerFactory API
+├── results/                  # Results
+│   ├── FSA/                     # Frequency Stability Assessment
+│   ├── INFO/                    # Simulation Information
+│   ├── LF/                      # LoadFlow results
+│   ├── LOG/                     # Process Logging files
+│   ├── SSSA/                    # Small Signal Stability Assessment
+│   ├── temp/                    # Temporary Assessment results
+│   ├── temp_results/            # Temporary Powerfactory results
+│   ├── TSA/                     # Transient Stability Assessment results 
+│   └── vault/                   # Stored Database
+├── Workspace/                # PowerFactory Workspace
+├── .env                      # Environment variables
+├── .gitignore                # .gitignore
+├── ClearPFSpace.py           # Delete Projects in PowerFactory Directory
+├── fullDSA.py                # Run full process from importing model to exporting anaysis
+├── random_setpoint.py        # Modules used to set a random operating point
+├── RunMultipleTimes.py       # Run fullDSA.py multiple times
+├── requirements.txt          # Python debendencies
+├── LICENCE                   # Licence
+└── README.md                 # Project documentation
 ```
+## Funding
+
+The AI-ASSIST project is funded by the Slovenian Research and Innovation Agency (ARIS) under Grant Agreement No. L2-50053.
+
+## Contributors
+
+- **Laboratory of Electric Power Supply**, Faculty of Electrical Engineering, University of Ljubljana
+- **ELES**, Slovenian transmission system operator
+- **SensorLab**, Jožef Stefan Institute
 
 ## License
 
